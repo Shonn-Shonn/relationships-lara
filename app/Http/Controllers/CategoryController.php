@@ -8,10 +8,10 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-    public function delete(Product $product)
+    public function delete(Product $product,Request $request)
     {
-        $category = Category::find(3);
-        $product->categories()->detach($category);
+        dd($request->category_id);
+        $product->categories()->detach($request->category_id);
 
         return 'Success';
     }

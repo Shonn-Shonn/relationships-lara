@@ -2,32 +2,30 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CategoryAttach;
 use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    public function create(Request $request)
+    public function create(CategoryAttach $request)
     {
         $product = new Product();
-        $product->name = 'God of War';
-        $product->price = 40;
+        $product = Product::where('id', $request->product_id)->first();
 
-        $product->save();
-
-        $category = Category::find([1, 2]);
-        $product->categories()->attach($category);
+        $category = Category::find($request->category_id);
+        $product->categories()->sync($category);
 
         return 'Success';
     }
 
     public function show()
     {
-        $category = Category::find(1);
+        $category = Category::find(3);
         //dd($category->products); // will return all products for the category id 1
 
         $product = Product::find(1);
-        dd($category->products->toArray(),$product->categories->toArray()); 
+        dd($category->products); 
     }
 }
