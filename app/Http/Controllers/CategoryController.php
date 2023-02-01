@@ -20,8 +20,8 @@ class CategoryController extends Controller
         // $category = Category::find(1);
         // dd($category->types);
 
-        $category = Category::find(1);
-        dd($category->items);      
+        $category = Category::find(5);
+        dd($category->items->toArray());      
         
     }
 }

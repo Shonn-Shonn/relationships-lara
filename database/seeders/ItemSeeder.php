@@ -17,7 +17,8 @@ class ItemSeeder extends Seeder
     {
         $items = array(
             ['name' => 'Aspire E14', 'description' => 'for young people', 'type_id' => 4],
-            ['name' => 'Cow Head', 'description' => 'for babies', 'type_id' => 5]
+            ['name' => 'Cow Head', 'description' => 'for babies', 'type_id' => 5],
+            ['name' => 'Lenovo bi231','description' => 'for all usage', 'type_id' => 3],
         );
 
         DB::table('items')->insert($items);
