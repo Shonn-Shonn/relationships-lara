@@ -33,3 +33,4 @@ Route::get('post/show', [PostController::class, 'postShow']);
 
 Route::post('user/roles', [TestingController::class, 'userRoles']);
 Route::post('role/users', [TestingController::class, 'roleUsers']);
+Route::post('add/userroles', [TestingController::class, 'addUserRoles']);

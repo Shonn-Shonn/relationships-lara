@@ -27,6 +27,14 @@ class TestingController extends Controller
             $role = Role::find($request->id);
             dd($role->users->toArray());
       }
+
+      public function addUserRoles(User $user,Request $request)
+      {
+            $user = User::find($request->id);
+            $addRole = $request->role_id;
+            $user->roles()->sync([1,2,3]);
+            dd($user->roles->toArray());
+      }
 }
 
 
