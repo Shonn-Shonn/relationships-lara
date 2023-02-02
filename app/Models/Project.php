@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Project extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['name'];
+
+    public function deployments()
+    {
+        return $this->hasManyThrough(Deployment::class, Environment::class);
+    }
 }

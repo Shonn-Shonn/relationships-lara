@@ -30,7 +30,11 @@ Route::get('user/phone', [TestingController::class,'userPhone']);
 //Post+Comment(hasManyRelationship);
 Route::get('post/show', [PostController::class, 'postShow']);
 
-
+//user+role(ManyToManyRelationship);
 Route::post('user/roles', [TestingController::class, 'userRoles']);
 Route::post('role/users', [TestingController::class, 'roleUsers']);
 Route::post('add/userroles', [TestingController::class, 'addUserRoles']);
+
+//project+deployment(hasOneThrough);
+Route::post('project/deployments', [TestingController::class, 'projectDeployments']);
+

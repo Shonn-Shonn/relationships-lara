@@ -23,6 +23,9 @@ class DatabaseSeeder extends Seeder
         $this->call(PostSeeder::class);
         $this->call(CommentSeeder::class);
         $this->call(RoleSeeder::class);
+        $this->call(ProjectSeeder::class);
+        $this->call(EnviromentSeeder::class);
+        $this->call(DeploymentSeeder::class);
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',

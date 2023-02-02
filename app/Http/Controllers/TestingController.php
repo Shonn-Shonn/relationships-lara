@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Role;
 use App\Models\User;
 use App\Models\Phone;
+use App\Models\Project;
 use Illuminate\Http\Request;
 
 class TestingController extends Controller
@@ -34,6 +35,12 @@ class TestingController extends Controller
             $addRole = $request->role_id;
             $user->roles()->sync([1,2,3]);
             dd($user->roles->toArray());
+      }
+
+      public  function projectDeployments(Project $project, Request $request)
+      {
+            $project = Project::find($request->id);
+            dd($project->deployments->toArray());
       }
 }
 
