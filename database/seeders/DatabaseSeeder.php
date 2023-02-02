@@ -20,6 +20,9 @@ class DatabaseSeeder extends Seeder
 
         $this->call(NRCSeeder::class);
         $this->call(PhoneSeeder::class);
+        $this->call(PostSeeder::class);
+        $this->call(CommentSeeder::class);
+        $this->call(RoleSeeder::class);
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
