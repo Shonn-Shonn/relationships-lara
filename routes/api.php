@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\TestingController;
 use App\Models\NRC;
+use App\Models\Phone;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -21,7 +23,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
-Route::get('user/nrc', function (User $user,NRC $nRC) {
-    $user = User::find(1);
-    dd($user->nrc);
-}); 
+Route::get('user/phone', [TestingController::class,'userPhone']); 

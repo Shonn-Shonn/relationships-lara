@@ -46,4 +46,8 @@ class User extends Authenticatable
     {
         return $this->hasOne(NRC::class);
     }
+    public function phone()
+    {
+        return $this->hasOne(Phone::class);
+    }
 }
