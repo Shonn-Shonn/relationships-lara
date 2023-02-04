@@ -9,6 +9,8 @@ class Post extends Model
 {
     use HasFactory;
 
+    protected $with = ['comments'];
+
     protected $fillable = ['name','user_id'];
 
     public function comments()
@@ -20,6 +22,8 @@ class Post extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+
 
     //default value
 //     public function user()
