@@ -19,11 +19,26 @@ class PostController extends Controller
     }
 
 
-    public function index()
+    public function index(Post $post)
     {
-        $comment = Comment::find(1);
-        return response()->json([
-             'data' => new CommentResource($comment)
+        //$comment = new Comment(['title' => 'lack of emotions']);
+
+        $post = Post::find(2);
+
+        //$post->comments()->save($comment);
+
+        $post->refresh();
+
+        //$comment2 = new Comment(['title' => 'apathetic']);
+
+        $post->comments()->saveMany([
+            new Comment(['title' => 'lack of emotions']),
+            new Comment(['title' => 'apathetic']),
         ]);
+
+        return response()->json([
+              'data' => Post::get()
+        ]);
+
     }
 }
