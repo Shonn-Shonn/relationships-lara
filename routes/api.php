@@ -38,3 +38,5 @@ Route::post('add/userroles', [TestingController::class, 'addUserRoles']);
 //project+deployment(hasOneThrough);
 Route::post('project/deployments', [TestingController::class, 'projectDeployments']);
 
+Route::get('/posts', [PostController::class, 'index']);
+
