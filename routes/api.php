@@ -39,4 +39,8 @@ Route::post('add/userroles', [TestingController::class, 'addUserRoles']);
 Route::post('project/deployments', [TestingController::class, 'projectDeployments']);
 
 Route::get('/posts', [PostController::class, 'index']);
+Route::get('/posts/comments', [PostController::class, 'postComments']);
 
+
+//companies
+Route::get('/companies', [PostController::class, 'companies']);

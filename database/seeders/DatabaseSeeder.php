@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ProjectSeeder::class);
         $this->call(EnviromentSeeder::class);
         $this->call(DeploymentSeeder::class);
+        $this->call(CompanySeeder::class);
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',

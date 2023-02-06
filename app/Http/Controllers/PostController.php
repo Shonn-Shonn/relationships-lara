@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\CommentResource;
 use App\Models\Comment;
+use App\Models\Company;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -40,5 +41,22 @@ class PostController extends Controller
               'data' => Post::get()
         ]);
 
+    }
+
+
+    public function postComments()
+    {
+        $posts = Post::has('comments')->with('comments')->get();
+
+        return response()->json([
+            'message' => 'Show successfully',
+            'data' => $posts
+        ]);
+    }
+
+    public function companies(Company $company)
+    {
+        $company = Company::get();
+        dd($company->toArray());
     }
 }
