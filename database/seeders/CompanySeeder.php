@@ -6,6 +6,7 @@ use App\Models\Company;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
+use Illuminate\Support\Facades\DB;
 
 class CompanySeeder extends Seeder
 {
@@ -16,9 +17,11 @@ class CompanySeeder extends Seeder
      */
     public function run()
     {
+        DB::table('companies')->truncate();
+
         $faker = Faker::create();
 
-        for($i = 0 ; $i < 11 ; $i++)
+        for($i = 0 ; $i < 30 ; $i++)
         {
             $company = new Company;
             $company->name = $faker->company();

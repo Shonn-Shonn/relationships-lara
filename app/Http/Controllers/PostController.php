@@ -56,7 +56,7 @@ class PostController extends Controller
 
     public function companies(Company $company)
     {
-        $company = Company::get();
+        $company = Company::take(10)->get();
         dd($company->toArray());
     }
 }
