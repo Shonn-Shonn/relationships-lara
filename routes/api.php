@@ -1,9 +1,11 @@
 <?php
 
+use App\Enums\ProductEnum;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\TestingController;
 use App\Models\NRC;
 use App\Models\Phone;
+use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -40,7 +42,20 @@ Route::post('project/deployments', [TestingController::class, 'projectDeployment
 
 Route::get('/posts', [PostController::class, 'index']);
 Route::get('/posts/comments', [PostController::class, 'postComments']);
+Route::get('/allposts', [PostController::class, 'allPosts']);
 
 
 //companies
 Route::get('/companies', [PostController::class, 'companies']);
+
+Route::get('/testing', function () {
+    $product = new Product();
+    $product->name = 'New Product2';
+    $product->body = 'This is a paragraph2.';
+    $product->status = ProductEnum::Inactive;
+    $product->save();
+
+    return response()->json([
+         'data' => $product
+    ]);
+});

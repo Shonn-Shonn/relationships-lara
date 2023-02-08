@@ -59,4 +59,14 @@ class PostController extends Controller
         $company = Company::take(10)->get();
         dd($company->toArray());
     }
+
+    public function allPosts(Post $post)
+    {
+        $post = Post::addSelect(['like', 'body'])->get();
+
+        return response()->json([
+              'message' => 'Show data!',
+              'data' => $post,
+        ]);
+    }
 }
