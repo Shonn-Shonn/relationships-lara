@@ -24,4 +24,5 @@ return view('welcome',compact('posts'));
 
 Route::get('/users', [UserController::class, 'index'])->name('users.index');
 Route::post('/users/search', [UserController::class, 'search'])->name('users.search');
-Route::get('/users/show', [UserController::class, 'show'])->name('users.show');
+Route::get('/user/show', [UserController::class, 'show'])->name('user.show');
+Route::get('/user/insert', [UserController::class, 'insert'])->name('user.insert');
